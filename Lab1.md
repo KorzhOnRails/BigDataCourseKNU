@@ -12,20 +12,26 @@ Oleksandr Korzh
 
 ``` r
 library(readxl)
+Sys.setlocale("LC_CTYPE", "russian")
+```
+
+    ## [1] "Russian_Russia.1251"
+
+``` r
 download.file('https://data.gov.ua/dataset/c445c6ea-f0c3-4167-abb1-5afb4a0e5499/resource/d55eebcf-4660-4919-96b3-4894be5a6cda/download/nuclear_safety_q1_2019.xlsx',destfile = "rad_data.xlsx","auto",TRUE,"wb")
-rad_data <- read_xlsx("rad_data.xlsx")
+rad_data <- read_excel("rad_data1.xlsx")
 head(rad_data, n = 6)
 ```
 
     ## # A tibble: 6 x 16
     ##    year quarter station   irg irg_index `iodine_ radion~ `iodine_ radion~
     ##   <dbl>   <dbl> <chr>   <dbl>     <dbl>            <dbl> <chr>           
-    ## 1  2018       1 <U+0417><U+0410><U+0415><U+0421>       89      0.13            260   <0,01           
-    ## 2  2018       1 <U+0420><U+0410><U+0415><U+0421>      105      0.16            147   <0,01           
-    ## 3  2018       1 <U+042E><U+0423><U+0410><U+0415><U+0421>      45      0.1              76   <0,01           
-    ## 4  2018       1 <U+0425><U+0410><U+0415><U+0421>       31      0.07             26.8 <0,01           
-    ## 5  2018       2 <U+0417><U+0410><U+0415><U+0421>       84      0.12            262   <0,01           
-    ## 6  2018       2 <U+0420><U+0410><U+0415><U+0421>      113      0.17             73   <0,01           
+    ## 1  2018       1 ЗАЕС       89      0.13            260   <0,01           
+    ## 2  2018       1 РАЕС      105      0.16            147   <0,01           
+    ## 3  2018       1 ЮУАЕС      45      0.1              76   <0,01           
+    ## 4  2018       1 ХАЕС       31      0.07             26.8 <0,01           
+    ## 5  2018       2 ЗАЕС       84      0.12            262   <0,01           
+    ## 6  2018       2 РАЕС      113      0.17             73   <0,01           
     ## # ... with 9 more variables: stable_radionuclides <dbl>, `stable_
     ## #   radionuclides_index` <chr>, cs_137_emission <dbl>, `co_60_
     ## #   emission` <dbl>, cs_137_dump <dbl>, co_60_dump <dbl>, volume <dbl>,
